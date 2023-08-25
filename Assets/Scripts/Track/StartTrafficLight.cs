@@ -16,19 +16,8 @@ public class StartTrafficLight : SingletonBase<StartTrafficLight>, IDependency<R
     private RaceStateTracker raceStateTracker;
     public void Construct(RaceStateTracker obj) => raceStateTracker = obj;
 
-    /* public float TrafficTimer => timer;
-
-    public float RedTimer => m_RedLightsDelay;
-    public float YellowTimer => m_YellowLightsDelay;
-    public float GreenTimer => m_GreenLightsDelay;
-
-    public bool IsTrafficLightReady { get; private set; }
-    */
-
     private void Start()
     {
-        //IsTrafficLightReady = false;
-
         raceStateTracker.PreparationStarted += OnRacePreparationStarted;
 
         m_RedLights.SetActive(false);
@@ -66,8 +55,6 @@ public class StartTrafficLight : SingletonBase<StartTrafficLight>, IDependency<R
         if (timer > m_GreenLightsDelay)
         {
             m_GreenLights.SetActive(true);
-
-            // IsTrafficLightReady = true;
 
             enabled = false;
         }

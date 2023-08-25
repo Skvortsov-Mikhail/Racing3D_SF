@@ -40,7 +40,6 @@ public class UILapRecordTime : MonoBehaviour, IDependency<RaceResultTime>, IDepe
 
     private void OnRaceStarted()
     {
-
         bestLapObject.SetActive(true);
         lastLapObject.SetActive(true);
         currentLapObject.SetActive(true);

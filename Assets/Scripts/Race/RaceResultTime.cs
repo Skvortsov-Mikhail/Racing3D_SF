@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 public class RaceResultTime : MonoBehaviour, IDependency<RaceTimeTracker>, IDependency<RaceStateTracker>
 {
     public const string SaveMark = "_player_best_time";
-    public const string SaveLapMark = "_player_best__lap_time"; // mine
-    
+    public const string SaveLapMark = "_player_best__lap_time";
+
     public event UnityAction ResultUpdated;
 
     [SerializeField] private float goldTime;
@@ -41,13 +41,13 @@ public class RaceResultTime : MonoBehaviour, IDependency<RaceTimeTracker>, IDepe
     private void Start()
     {
         raceStateTracker.Completed += OnRaceCompleted;
-        raceTimeTracker.LapTimeUpdated += OnLapCompleted; // mine
+        raceTimeTracker.LapTimeUpdated += OnLapCompleted;
     }
 
     private void OnDestroy()
     {
         raceStateTracker.Completed -= OnRaceCompleted;
-        raceTimeTracker.LapTimeUpdated -= OnLapCompleted; // mine
+        raceTimeTracker.LapTimeUpdated -= OnLapCompleted;
     }
 
     private void OnRaceCompleted()
@@ -66,12 +66,11 @@ public class RaceResultTime : MonoBehaviour, IDependency<RaceTimeTracker>, IDepe
         ResultUpdated?.Invoke();
     }
 
-    // my method
     private void OnLapCompleted()
     {
         lastLapTime = raceTimeTracker.PreviousLapTime;
 
-        if(raceTimeTracker.PreviousLapTime < bestLapTime || bestLapTime == 0)
+        if (raceTimeTracker.PreviousLapTime < bestLapTime || bestLapTime == 0)
         {
             bestLapTime = lastLapTime;
         }
@@ -95,12 +94,12 @@ public class RaceResultTime : MonoBehaviour, IDependency<RaceTimeTracker>, IDepe
     private void Load()
     {
         playerRecordTime = PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + SaveMark, 0);
-        bestLapTime = PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + SaveLapMark, 0); // mine
+        bestLapTime = PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + SaveLapMark, 0);
     }
 
     private void Save()
     {
         PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + SaveMark, playerRecordTime);
-        PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + SaveLapMark, bestLapTime); // mine
+        PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + SaveLapMark, bestLapTime);
     }
 }

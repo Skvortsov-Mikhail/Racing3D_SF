@@ -31,12 +31,12 @@ public class CarInputControl : MonoBehaviour, IDependency<Car>
         UpdateAutoBrake();
 
 
-        if(Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             car.UpGear();
-        }  
-        
-        if(Input.GetKeyDown(KeyCode.Q))
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             car.DownGear();
         }
@@ -63,11 +63,11 @@ public class CarInputControl : MonoBehaviour, IDependency<Car>
             car.BrakeControl = m_BrakeCurve.Evaluate(wheelSpeed / car.MaxSpeed);
         }
 
-        if(verticalAxis < 0 && wheelSpeed > -0.5f && wheelSpeed <= 0.5f && !m_IsHandBrakeUse)
+        if (verticalAxis < 0 && wheelSpeed > -0.5f && wheelSpeed <= 0.5f && !m_IsHandBrakeUse)
         {
             car.ShiftToReverseGear();
         }
-        
+
         if (verticalAxis > 0 && wheelSpeed > -0.5f && wheelSpeed <= 0.5f && !m_IsHandBrakeUse)
         {
             car.ShiftToFirstGear();
@@ -78,20 +78,24 @@ public class CarInputControl : MonoBehaviour, IDependency<Car>
     {
         car.SteerControl = m_SteerCurve.Evaluate(wheelSpeed / car.MaxSpeed) * horizontalAxis;
     }
-    
+
     private void UpdateHandbrake()
     {
         if (handbrakeAxis != 0)
+        {
             m_IsHandBrakeUse = true;
+        }
         else
+        {
             m_IsHandBrakeUse = false;
+        }
 
         car.HandBrakeControl = handbrakeAxis;
     }
 
     private void UpdateAutoBrake()
     {
-        if(verticalAxis == 0)
+        if (verticalAxis == 0)
         {
             car.BrakeControl = m_BrakeCurve.Evaluate(wheelSpeed / car.MaxSpeed) * autoBrakeStrength;
         }

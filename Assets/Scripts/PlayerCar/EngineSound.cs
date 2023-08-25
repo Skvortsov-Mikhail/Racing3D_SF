@@ -27,20 +27,24 @@ public class EngineSound : MonoBehaviour, IDependency<Car>
     {
         if (car.GetGearName().Equals("N"))
         {
-            if (!NeutralAudioSource.isPlaying)
+            if (NeutralAudioSource.isPlaying == false)
+            {
                 NeutralAudioSource.Play();
+            }
 
             engineAudioSource.Stop();
         }
         else
         {
-            if (!engineAudioSource.isPlaying)
+            if (engineAudioSource.isPlaying == false)
+            {
                 engineAudioSource.Play();
+            }
 
             NeutralAudioSource.Stop();
         }
 
-        if (engineAudioSource.isPlaying)
+        if (engineAudioSource.isPlaying == true)
         {
             engineAudioSource.pitch = basePitch + pitchModifier * (car.NormalizedEngineRpmInCurrentGear * rpmModifier);
             engineAudioSource.volume = baseVolume + volumeModifier * car.NormalizedEngineRpmInCurrentGear;

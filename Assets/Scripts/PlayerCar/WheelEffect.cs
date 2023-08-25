@@ -37,7 +37,7 @@ public class WheelEffect : MonoBehaviour
                         skidTrail[i] = Instantiate(m_SkidPrefab).transform;
                     }
 
-                    if(m_Audio.isPlaying == false)
+                    if (m_Audio.isPlaying == false)
                     {
                         m_Audio.Play();
                     }
@@ -61,6 +61,8 @@ public class WheelEffect : MonoBehaviour
         }
 
         if (isSlip == false)
+        {
             m_Audio.Stop();
+        }
     }
 }

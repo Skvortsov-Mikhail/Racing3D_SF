@@ -38,7 +38,7 @@ public class UICountdownTimer : MonoBehaviour, IDependency<RaceStateTracker>
     {
         text.text = raceStateTracker.CountdownTimer.Value.ToString("F0");
 
-        if(text.text == "0")
+        if (text.text == "0")
         {
             text.text = "GO!";
         }

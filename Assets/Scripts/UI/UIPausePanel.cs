@@ -25,7 +25,7 @@ public class UIPausePanel : MonoBehaviour, IDependency<Pauser>
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) == true)
+        if (Input.GetKeyDown(KeyCode.Escape) == true)
         {
             pauser.ChangePauseState();
         }

@@ -51,22 +51,12 @@ public class UISelectableButtonContainer : MonoBehaviour
 
         for (int i = 0; i < buttons.Length; i++)
         {
-            if(buttons[i] == button)
+            if (buttons[i] == button)
             {
                 selectButtonIndex = i;
                 button.SetFocuse();
                 break;
             }
         }
-    }
-
-    public void SelectNext()
-    {
-
-    }
-
-    public void SelectPrevious()
-    {
-
     }
 }
