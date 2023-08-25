@@ -9,7 +9,6 @@ public class FrontHeadLight : MonoBehaviour
         Low,
         High
     }
-    
 
     [SerializeField] private float m_LowStateRange;
     [SerializeField] private float m_HighStateRange;
@@ -36,45 +35,49 @@ public class FrontHeadLight : MonoBehaviour
         switch (lightState)
         {
             case HeadLightState.Off:
-                {
-                    m_Light.enabled = false;
-                    break;
-                }
+            {
+                m_Light.enabled = false;
+                break;
+            }
 
             case HeadLightState.Low:
-                {
-                    m_Light.enabled = true;
+            {
+                m_Light.enabled = true;
 
-                    m_Light.range = m_LowStateRange;
-                    m_Light.intensity = m_LowStateIntensity;
-                    m_Light.spotAngle = m_LowStateAngle;
+                m_Light.range = m_LowStateRange;
+                m_Light.intensity = m_LowStateIntensity;
+                m_Light.spotAngle = m_LowStateAngle;
 
-                    break;
-                }
+                break;
+            }
 
             case HeadLightState.High:
-                {
-                    m_Light.enabled = true;
+            {
+                m_Light.enabled = true;
 
-                    m_Light.range = m_HighStateRange;
-                    m_Light.intensity = m_HighStateIntensity;
-                    m_Light.spotAngle = m_HighStateAngle;
+                m_Light.range = m_HighStateRange;
+                m_Light.intensity = m_HighStateIntensity;
+                m_Light.spotAngle = m_HighStateAngle;
 
-                    break;
-                }
+                break;
+            }
         }
     }
 
     public void SwitchHeadLightState()
     {
         if (lightState == HeadLightState.Off)
+        {
             lightState = HeadLightState.Low;
-
+        }
         else if (lightState == HeadLightState.Low)
+        {
             lightState = HeadLightState.High;
-
+        }
         else if (lightState == HeadLightState.High)
+        {
             lightState = HeadLightState.Off;
+        }
 
         SwitchLight();
     }

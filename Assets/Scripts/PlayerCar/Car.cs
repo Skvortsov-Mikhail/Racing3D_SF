@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -159,9 +157,14 @@ public class Car : MonoBehaviour
         if (selectedGear < 0) return;
 
         if (m_EngineRpm >= m_UpShiftEngineRpm)
+        {
             UpGear();
+        }
+
         if (m_EngineRpm < m_DownShiftEngineRpm)
+        {
             DownGear();
+        }
     }
 
     private void ShiftGear(int gearIndex)

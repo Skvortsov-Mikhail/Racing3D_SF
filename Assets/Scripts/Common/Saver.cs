@@ -9,7 +9,7 @@ public class Saver<T>
     {
         var path = FileHandler.Path(filename);
 
-        if (File.Exists(path))
+        if (File.Exists(path) == true)
         {
             Debug.Log($"Loading from {path}");
 

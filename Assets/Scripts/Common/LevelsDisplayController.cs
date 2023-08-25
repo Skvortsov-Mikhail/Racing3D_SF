@@ -13,8 +13,6 @@ public class LevelsDisplayController : MonoBehaviour
         UpdateRacesAvailability();
 
         RaceCompletion.Instance.DataUpdated += UpdateRacesAvailability;
-
-        print(races.Length);
     }
 
     private void OnDestroy()

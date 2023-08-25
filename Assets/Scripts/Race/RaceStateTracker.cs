@@ -27,10 +27,6 @@ public class RaceStateTracker : MonoBehaviour, IDependency<TrackPointCircuit>
 
     [SerializeField] private int lapsToComplete;
     public int LapsToComplete => lapsToComplete;
-    /*
-    private int completedLaps;
-    public int CompletedLaps => completedLaps;
-    */
 
     private RaceState state;
     public RaceState State => state;
@@ -114,8 +110,6 @@ public class RaceStateTracker : MonoBehaviour, IDependency<TrackPointCircuit>
         StartState(RaceState.Passed);
 
         Completed?.Invoke();
-
-        print("Race comleted!");
 
         RaceCompletion.SaveRaceResult(SceneManager.GetActiveScene().name);
     }

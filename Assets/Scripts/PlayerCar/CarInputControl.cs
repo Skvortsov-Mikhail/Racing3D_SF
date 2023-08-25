@@ -78,7 +78,7 @@ public class CarInputControl : MonoBehaviour, IDependency<Car>
     {
         car.SteerControl = m_SteerCurve.Evaluate(wheelSpeed / car.MaxSpeed) * horizontalAxis;
     }
-
+    
     private void UpdateHandbrake()
     {
         if (handbrakeAxis != 0)

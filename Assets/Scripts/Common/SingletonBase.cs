@@ -19,7 +19,9 @@ public abstract class SingletonBase<T> : MonoBehaviour where T : MonoBehaviour
 
         Instance = this as T;
 
-        if (m_DoNotDestroyOnLoad)
+        if (m_DoNotDestroyOnLoad == true)
+        {
             DontDestroyOnLoad(gameObject);
+        }
     }
 }

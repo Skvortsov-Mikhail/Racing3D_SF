@@ -22,9 +22,13 @@ public class PauseAudioSource : MonoBehaviour, IDependency<Pauser>
 
     private void OnPauseStateChanged(bool isPaused)
     {
-        if (isPaused == true) 
-            source.Stop();
+        if (isPaused == true)
+        { 
+            source.Stop(); 
+        }
         else
+        {
             source.Play();
+        }
     }
 }

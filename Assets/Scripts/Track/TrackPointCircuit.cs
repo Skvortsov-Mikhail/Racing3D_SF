@@ -59,7 +59,6 @@ public class TrackPointCircuit : MonoBehaviour
             if (type == TrackType.Sprint)
             {
                 LapCompleted?.Invoke(lapsCompleted);
-                print("Sprint Done");
             }
 
             if (type == TrackType.Circular)
@@ -67,7 +66,6 @@ public class TrackPointCircuit : MonoBehaviour
                 if (lapsCompleted > 0)
                 {
                     LapCompleted?.Invoke(lapsCompleted);
-                    print(lapsCompleted + " Circles Done");
                 }
             }
         }

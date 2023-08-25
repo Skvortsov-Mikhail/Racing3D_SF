@@ -14,7 +14,7 @@ public class Pauser : MonoBehaviour
         SceneManager.sceneLoaded += SceneManager_sceneLoaded;
     }
 
-    private void OnDestroy() // ??
+    private void OnDestroy()
     {
         SceneManager.sceneLoaded -= SceneManager_sceneLoaded;
     }
@@ -27,9 +27,13 @@ public class Pauser : MonoBehaviour
     public void ChangePauseState()
     {
         if (isPause == true)
+        {
             UnPause();
+        }
         else
+        {
             Pause();
+        }
     }
 
     public void Pause()
